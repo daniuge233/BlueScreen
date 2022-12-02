@@ -1,0 +1,210 @@
+<!-- Copyright(C) 2022 daniuge233 -->
+<!DOCTYPE utf-8>
+
+<html>
+    <head>
+        <title>Your computer is dead!</title>
+    </head>
+    <body>
+
+        <div id="main_content">
+            <div id="face_content">
+                <!--这是那张脸的每个组成部分-->
+                <span id="brackets_l">(</span>      <!--左脸颊-->
+                <span id="eye_l">·</span>           <!--左眼-->
+                <span id="mouth">_</span>           <!--嘴-->
+                <span id="eye_r">·</span>           <!--右眼-->
+                <span id="brackets_r">)</span>      <!--右脸颊-->
+                <!--其中 眼睛是要看向鼠标的-->
+            </div>
+
+            <div class="content_content">
+                <span id="content">
+                    <!--这是标题-->
+                    I DON'T know<br>WHAT the fuck is going on.<br>
+                </span>
+                <span id="subcontent">
+                    <!--这是下面的小字-->
+                    <br>Good luck search it online though.<br>
+                    Here's useless number that google has no results for. Try Bing.
+                </span>
+            </div>
+        </div>
+    </body>
+
+    <style>
+        /* 这是背景rgb */
+        @keyframes bgcolor {
+            0% {
+                background-color: #c44040;
+            }
+
+            10% {
+                background-color: #c48040;
+            }
+
+            20% {
+                background-color: #80c440;
+            }
+
+            30% {
+                background-color: #40c440;
+            }
+
+            40% {
+                background-color: #40c480;
+            }
+
+            50% {
+                background-color: #4080c4;
+            }
+
+            60% {
+                background-color: #4040c4;
+            }
+
+            70% {
+                background-color: #8040c4;
+            }
+
+            80% {
+                background-color: #c44080;
+            }
+
+            90% {
+                background-color: #c44060;
+            }
+
+            100% {
+                background-color: #c44040;
+            }
+        }
+
+        /* 高度设置 */
+        html {
+            height: 100%;
+        }
+        
+        /* 初始化 */
+        body {
+            -webkit-font-smoothing: antialiased;
+            animation-delay: 0s;
+            animation-duration: 60s;
+            animation-iteration-count: infinite;
+            animation-name: bgcolor;
+            background-color: #FFFFFF;
+            color: white;
+            font-family: "Segoe UI", "Microsoft Yahei UI";
+            height: 100%;
+            margin: 0px;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* 所有字 */
+        #main_content {
+            position: relative;
+            left: 450px;
+            top: 200px;
+        }
+
+        /* 脸 */
+        #face_content {
+            position: relative;
+            font-size: 95px;
+        }
+
+        /* 组成脸的所有符号(真·脸上写字) */
+        #face_content span {
+             position: relative;
+        }
+
+        /* 标题 */
+        #content {
+            font-size: 75px;
+        }
+
+        /* 文字默认样式 */
+        .content_content {
+            position: absolute;
+            top: 175px;
+            font-size: 25px;
+        }
+    </style>
+</html>
+
+<script>
+    var el = document.getElementById("eye_l");  // 左眼
+    var er = document.getElementById("eye_r");  // 右眼
+    var mouseX, mouseY;                         // 鼠标位置
+
+    // 初始位置
+    var ElDefaultX, ElDefaultY, ErDefaultX, ErDefaultY;
+
+    // 目标位置
+    var elx = 0, ely = 0, erx = 0, ery = 0;
+
+    // 可移动最远距离
+    const EXSpd = 30;
+    const EYSpd = 20;
+
+    // X轴控制
+    function fixTargetX() {
+        // 控制左眼
+        if (mouseX - 520 > ElDefaultX + EXSpd) {
+            elx = ElDefaultX + EXSpd - 60;
+        } else if (mouseX - 520 < ElDefaultX - EXSpd) {
+            elx = ElDefaultX - EXSpd - 60;
+        } else if (mouseX - 520 > ElDefaultX - EXSpd && mouseX - 520 < ErDefaultX + EXSpd) {
+            elx = mouseX - 520 - 60;
+        }
+
+        // 控制右眼
+        erx = elx + 15;
+    }
+
+    function fixTargetY() {
+        // 控制左眼
+        if (mouseY - 275 > ElDefaultY + EYSpd) {
+            ely = ElDefaultY + EYSpd;
+        } else if (mouseY - 275 < ElDefaultY - EYSpd) {
+            ely = ElDefaultY - EYSpd;
+        } else if (mouseY - 275 > ElDefaultY - EYSpd && mouseY - 275 < ErDefaultY + EYSpd) {
+            ely = mouseY - 275;
+        }
+
+        // 控制右眼
+        ery = ely;
+    }
+
+    // 初始化
+    window.onload = function () { 
+        ElDefaultX = el.offsetLeft;
+        ElDefaultY = el.offsetTop;
+        ErDefaultX = er.offsetLeft;
+        ErDefaultY = er.offsetTop;
+    }
+
+    // 鼠标移动事件
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.pageX;   // 鼠标坐标
+        mouseY = e.pageY; 
+
+        fixTargetX();
+        fixTargetY();
+    });
+
+    // 刷新位置
+    function upload() {
+
+        el.style.left = elx + "px";
+        el.style.top = ely + "px";
+        er.style.left = erx + "px";
+        er.style.top = ery + "px";
+
+        count++;
+    }
+
+    // 循环...
+    setInterval(upload, 1);
+</script>
