@@ -1,7 +1,7 @@
 # BlueScreen<br/>一个简单的动态壁纸
 
 这是一个简单但有趣的动态壁纸。使用HTML、CS、JS制成。<br/>
-搭配<b>Wallpapper Engine</b>或其他支持<b>.html文件</b>的动态壁纸软件食用风味更佳
+搭配<b>Wallpaper Engine</b>或其他支持<b>.html文件</b>的动态壁纸软件食用风味更佳
 ![效果预览](images/img1.png)
 效果预览↑<br/>
 (just kidding)
@@ -18,7 +18,7 @@
 ---------
 ### 食用方式
 #### <s>清蒸慢炖火闷爆炒油炸...</s>
-1. 打开Wallpapper Engine或其他支持.html文件的动态壁纸软件
+1. 打开Wallpaper Engine或其他支持.html文件的动态壁纸软件
 2. 使用壁纸软件打开index.html<br/>
 这样就好啦~
 ---------
@@ -109,6 +109,6 @@
 更改每个background-color后面的值就能改变要变成的颜色啦~
 
 ---------
-灵感来源：Honest Bluescreen - seekay(Wallpapper engine)，如有侵权请告知，立刻删除。
+灵感来源：Honest Bluescreen - seekay(Wallpaper engine)，如有侵权请告知，立刻删除。
 
 ©2022 daniuge233
