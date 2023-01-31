@@ -109,6 +109,5 @@
 更改每个background-color后面的值就能改变要变成的颜色啦~
 
 ---------
-灵感来源：Honest Bluescreen - seekay(Wallpaper engine)，如有侵权请告知，立刻删除。
-
+灵感来源：Honest Bluescreen - seekay，如有侵权请告知，立刻删除。
 ©2022 daniuge233
